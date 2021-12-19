@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+<div class="main">
+
+    <div class="login-div">
+        <form class="login">
+            <h1>Log In</h1>
+            <div class="input-text">
+               <input type="text" id="inputEmail" name="email" placeholder="Email or Username" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                <div class="warning-input" id="warningEmail">
+                    Please enter a valid email or username number.
+                </div>
+            </div>
+            
+            <div class="input-text-pass">
+                <input type="password" id="inputPassword" name="password" placeholder="Password" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                <div class="warning-input" id="warningPassword">
+                    Your password must contain between 4 and 60 characters.
+                </div>
+            </div>
+            
+            <div>
+                <button class="signin-button">Log In</button>
+            </div>
+           <!--  <div class="remember-flex">
+                <div>
+                    <input type="checkbox">
+                    <label class="color_text">Remember me</label>
+                </div>
+                <div class="help">
+                    <a class="color_text" href="#">Need help?</a>
+                </div>
+            </div> -->
+          <!--  <div class="login-face">
+                <img src="img/fb-icon.png" height="20"/><a href="#" class="color_link log_face">Login with Facebook</a>
+            </div> -->
+            <div class="new-members">
+               Dot'h have an account?  <a routerLink="/register" class="signup-link">Register Now...</a>.
+            </div>
+            <div class="new-members">
+               <a routerLink="/home" class="signup-link"><i class="fa fa-arrow-left"></i></a>
+             </div>
+<!-- <div class="protection color_link help">
+                This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more.</a>
+            </div> -->
+        </form>
+    </div>
+    </div>

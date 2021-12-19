@@ -1,0 +1,27 @@
+
+<div #mySidenav (click)="changeState()" id="mySidenav" class="sidenav">
+    <!-- <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a> -->
+      <a routerLink="/home">Home</a>
+      <a routerLink="/about">About</a>
+      <a routerLink="/work">Work</a>
+      <a routerLink="/locations">Locations</a>
+      <a routerLink="/bts">Photography</a>
+      <a routerLink="/contacts">Contact</a>
+      <br><br><br>
+      <!-- <div class="socialIconsInMenu">
+      <a><i class="fab fa-vimeo-v"></i></a>
+      <a><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com/fourlmntz/" target="_blank"> <i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/4lmntz/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div> -->
+    </div>
+    
+    <div (click)="toggleNav()" id="main">
+        <div #hamburgerRow class="hamburgerRow">
+      <span #hamburger id="hamburger" class="hamburger" style="font-size:30px;cursor:pointer" (click)="toggleNav()"><i #menuIcon class="fa fa-bars"></i></span> <!-- &#9776; -->
+    </div>
+
+    
+    </div>
+    
+    

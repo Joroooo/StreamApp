@@ -1,0 +1,73 @@
+<div class="main">
+
+    <div class="login-div">
+        <form class="login">
+            <h1>Register</h1>
+            <div class="register-fields">
+            <div class="input-text-username">
+               <input type="text" id="username" name="username" placeholder="Username" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                <div class="warning-input" id="warningEmail">
+                    Please enter a valid email or username number.
+                </div>
+            </div>
+            <div class="input-text-email">
+                <input type="text" id="email" name="email" placeholder="Email" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                 <div class="warning-input">
+                     Please enter a valid email or username number.
+                 </div>
+             </div>
+             <div class="input-text-firstName">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                 <div class="warning-input">
+                     Please enter a valid email or username number.
+                 </div>
+             </div>
+             <div class="input-text-lastName">
+                <input type="text" id="lastName" name="lastName" placeholder="Family Name" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                 <div class="warning-input">
+                     Please enter a valid email or username number.
+                 </div>
+             </div>
+             <div class="input-text-pass">
+                <input type="text" id="pass" name="pass" placeholder="Password" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                 <div class="warning-input" id="warningEmail">
+                     Please enter a valid email or username number.
+                 </div>
+             </div>
+
+            
+            <div class="input-text-repass">
+                <input type="password" id="repass" name="repass" placeholder="Repeat Password" onfocus="inputOnFocus(this)" onblur="inputOnBlur(this)"/>
+                <div class="warning-input" id="warningPassword">
+                    Your password must contain between 4 and 60 characters.
+                </div>
+            </div>
+            </div>
+            <div>
+                <button class="signin-button">Sign In</button>
+            </div>
+           <!--  <div class="remember-flex">
+                <div>
+                    <input type="checkbox">
+                    <label class="color_text">Remember me</label>
+                </div>
+                <div class="help">
+                    <a class="color_text" href="#">Need help?</a>
+                </div>
+            </div> -->
+          <!--  <div class="login-face">
+                <img src="img/fb-icon.png" height="20"/><a href="#" class="color_link log_face">Login with Facebook</a>
+            </div> -->
+            <div class="new-members">
+               Already a member?  <a routerLink="/register" class="signup-link">Sign In...</a>.
+            </div>
+            <div class="new-members">
+                <a routerLink="/home" class="signup-link">...Home...</a>
+              </div>
+<!-- <div class="protection color_link help">
+                This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more.</a>
+            </div> -->
+        </form>
+    </div>
+    </div>
+

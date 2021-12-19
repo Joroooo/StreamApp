@@ -1,0 +1,63 @@
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 460px;
+    background-color: black;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: left;
+  }
+
+.accordion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.question, .answer {
+    text-align: center;
+    color: #FFF;
+    font-family: "Bebas";
+}
+  
+  ul {
+    width: 100%;
+    margin: 25px auto;
+    padding: 5px;
+  }
+  
+  ul li {
+    margin-bottom: 8px;
+    list-style: none;
+  }
+  
+  details {
+    background: #303030;
+  }
+  
+  details summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    padding: 20px 56px;
+  }
+  
+  details summary i {
+    transition: 0.15s;
+  }
+  
+  details[open] summary i {
+    transform: rotate(45deg);
+  }
+  
+  details p {
+    padding: 26px;
+    border-top: 1px solid #000;
+  }
