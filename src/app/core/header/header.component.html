@@ -1,27 +1,15 @@
 
-<div #mySidenav (click)="changeState()" id="mySidenav" class="sidenav">
-    <!-- <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a> -->
-      <a routerLink="/home">Home</a>
-      <a routerLink="/about">About</a>
-      <a routerLink="/work">Work</a>
-      <a routerLink="/locations">Locations</a>
-      <a routerLink="/bts">Photography</a>
-      <a routerLink="/contacts">Contact</a>
-      <br><br><br>
-      <!-- <div class="socialIconsInMenu">
-      <a><i class="fab fa-vimeo-v"></i></a>
-      <a><i class="fas fa-envelope"></i></a>
-      <a href="https://www.facebook.com/fourlmntz/" target="_blank"> <i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/4lmntz/" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div> -->
-    </div>
-    
-    <div (click)="toggleNav()" id="main">
-        <div #hamburgerRow class="hamburgerRow">
-      <span #hamburger id="hamburger" class="hamburger" style="font-size:30px;cursor:pointer" (click)="toggleNav()"><i #menuIcon class="fa fa-bars"></i></span> <!-- &#9776; -->
-    </div>
-
-    
-    </div>
-    
-    
+<header class="header">
+  <div class="">
+  <a routerLink="home" class="logo"><img [src]='getLogo()'></a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a href="#work">{{timeValue?.toLocaleTimeString()}}</a></li>
+    <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">About</a></li>
+    <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Careers</a></li>
+    <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Contact</a></li>
+    <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-user"></i></a></li>
+  </ul>
+</div>
+</header>

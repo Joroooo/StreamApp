@@ -1,13 +1,11 @@
 
-.main-footer {
-    position: relative;
-}
+
 .footer {
-    margin-top: 10px;
+    margin-top: 2px;
     bottom: 0;
     left: 0;
-	width: 100%;
-	background: #141414;
+	width: 100vw;
+	background: #000; /* #141414; */
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	text-align: left;
@@ -26,6 +24,20 @@
 
 .footer .footer-left{
 	width: 40%;
+    @media (max-width: 380px) {
+        img {
+            width: 120px;
+            height: auto;
+            text-align: center;
+        }
+    }
+    @media (max-width: 180px) {
+        img {
+            width: 80px;
+          
+            
+        }
+    }
 }
 
 /* The company logo */
@@ -42,16 +54,27 @@
 
 /* Footer links */
 
-.footer .footer-links{
+.footer {
+    .footer-links { 
 	color:  #ffffff;
 	margin: 20px 0 12px;
 	padding: 0;
+    transition: 0.5s ease; 
+
+       a {
+        &:hover {
+            color: #41a181;
+            transition: 0.3s ease;
+        } 
+    }
+}
+
 }
 
 .footer .footer-links a{
 	display:inline-block;
 	line-height: 1.8;
-  font-weight:400;
+    font-weight:400;
 	text-decoration: none;
 	color:  inherit;
 }
@@ -69,7 +92,11 @@
 	width: 35%;
 }
 
-.footer .footer-center i{
+.footer {
+    .footer-center {
+
+    i {
+
 	background-color:  #33383b;
 	color: #ffffff;
 	font-size: 25px;
@@ -80,6 +107,11 @@
 	line-height: 42px;
 	margin: 10px 15px;
 	vertical-align: middle;
+    &:hover {
+        color: #41a181;
+    }
+}
+    }
 }
 
 .footer .footer-center i.fa-envelope{
@@ -90,7 +122,7 @@
 .footer .footer-center p{
 	display: inline-block;
 	color: #ffffff;
-  font-weight:400;
+    font-weight:400;
 	vertical-align: middle;
 	margin:0;
 }
@@ -114,7 +146,8 @@
   left: 0;
   color: #fff;
   display: inline-block;
-  padding-right: 5px;
+  padding: 0 5px;
+
 }
 
 .footer .footer-links .link-1:before {
@@ -147,21 +180,29 @@
 	margin-top: 25px;
 }
 
-.footer .footer-icons a{
+.footer {
+    .footer-icons { 
+        a { 
 	display: inline-block;
 	width: 35px;
 	height: 35px;
 	cursor: pointer;
-	background-color:  #33383b;
+	background-color: #33383b;
 	border-radius: 2px;
 
 	font-size: 20px;
 	color: #ffffff;
 	text-align: center;
 	line-height: 35px;
-
+    transition: 0.3s ease;
 	margin-right: 3px;
 	margin-bottom: 5px;
+    &:hover {
+        color: #41a181;
+        transition: 0.5s ease;
+    }
+}
+    }
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */

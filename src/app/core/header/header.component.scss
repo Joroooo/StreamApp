@@ -1,210 +1,169 @@
-  .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 9;
-    top: 0;
-    left: 0;
-    background-color: #000; /*rgb(46, 44, 44); */
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
 
-  .hamburger {
-    transition: 0.7s ease;
-    color: #FFF;
-  }
-  
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-family: 'Roboto';
-    font-size: 16px;
-    color: #FFF;
+a {
+  color: #FFF;
+  font-family: 'Roboto';
+}
+
+/* header */
+
+.header {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 3;
+  .logo {
     display: block;
-    transition: 0.3s;
-    z-index: 9;
+    float: left;
+    padding: 10px 10px 10px 20px;
+    margin: 0 auto;
+    img {
+      width: 50%;
+      height: auto;
+
+      @media screen and (max-width: 851px) {
+        width: 35px;
+        height: 35px;
+      }
+    }
   }
-  
-  .sidenav a:hover {
-    color: #2f755d; /*#818181; */
-  }
-  
-  .sidenav .closebtn {
+  &:after {
+    content: "";
     position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-
-  @media screen and (max-width: 365px) {
-    .sidenav {
-      padding-top: 30px;
-    }
-    .sidenav a {
-      font-size: 20px;
-    }
-  }
-  
-  #main {
-    display: row;
-    transition: margin-left .5s;
-    padding: 20px;
-   /* color: #FFF; */
-    height: 100%;
-    width: 30px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
+    top: 58px;
     left: 0;
-  /*  background-color: #000; */
-    overflow-x: hidden;
-    transition: 0.5s;
-  
-
-  }
-  @media screen and (max-width: 945px) {
-    #main {
-      background-color: inherit!important;
-    }
-    .hamburger {
-     
-      padding: 0 4px;;
-    }
-
-  }
-  
-@media screen and (max-width: 570px) {
-  #main {
-    padding: 20px 20px 20px 10px;
-  }
-
-}
-  @media screen and (max-width: 670px) {
-   
-  }
-
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-ul li a {
-    display:block;
-    text-align: center;
-    padding: 10px 0;
-    font-family: 'Bebas';
-    text-decoration: none;
-
-}
-ul li:first-child {
-  /*  padding-top: 20px; */
-}
-/*
-@media only screen 
-and (max-width : 600px) {
-    .menu {
-        width: 40px;
-        height: 40px;
-        background: #08c9a2 url('http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/32x32/list_bullets.png') no-repeat scroll 50% 50%;
-    }
-    .menu ul {
-        display:none;
-    }
-    .menu:hover ul {
-        display:block;
-    }.menu:hover {
-        width: 100px;
-        height: auto;
-    }
-} */
-
-.socialIcons li a i {
-  text-decoration: none;
-  color: #000;
-  transition: 0.5s ease;
-  font-size: 16px;
-}
-.socialIcons {
-    position: fixed;
-    bottom: 100px;
-    left: 26px;
+    width: 100%;
+    height: 2px;
+    background: #41a181;
     z-index: 99;
-    transition: 0.5s ease;
 
-}
-@media screen and (max-width: 777px) {
-  .socialIcons li a i { font-size: 14px; }
-}
-@media screen and (max-width: 566px) {
-  .socialIcons li a i { font-size: 12px; }
-}
-
-@media screen and (max-width: 380px) {
-   /* .socialIcons {
-      display: flex;
-      align-items: flex-start;
-    }
-    .socialIcons li a {
-      padding: 10px 10px;
-    } */
-}
-@media screen and (max-width: 366px) {
-  .socialIcons li a i { font-size: 8px; }
-}
-@media screen and (max-width: 306px) {
-  .socialIcons {
-display: none;
   }
-  .socialIcons li a {
-    padding: 10px 10px;
+  .container {
+    width: 1200px;
+    margin: 0 auto;
   }
 }
-@media screen and (max-height: 292px) {
-  .socialIcons {
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  border-right: 2px solid #41a181;
+  text-decoration: none;
+  transition: 0.8s ease;
+}
+.header li:last-child a {
+  border-right: inherit;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #41a181;
+  transition: 0.5s ease;
+}
+
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #FFF;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: 0.2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #41a181;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+/* 48em = 768px */
+
+@media (min-width: 782px) {
+  .header {
+  /*  height: inherit!important;  */
+  }
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
     display: none;
   }
-}
-
-.socialLink {
-
-  transition: 0.5s ease;
-}
-
-.socialIcons  li a:hover {
-  color: #818181;
-  transition: 0.3s ease;
-}
-
-.socialIcons li a .i:hover {
-  color:#818181;
-}
-
-.socialIconsInMenu {
-    position: fixed;
-    bottom: 100px;
-    left: 26px;
-    color: #fff
-}
-
-.socialIconsInMenu a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-family: 'Bebas';
-  font-size: 20px;
-  color: #FFF;
-  display: block;
-  transition: 0.3s;
-  z-index: 9;
-}
-
-.socialIconsInMenu a:hover {
-  color: #818181;
 }

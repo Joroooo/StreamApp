@@ -144,7 +144,7 @@
   width: 100%;
   min-height: 460px;
   background-color: black;
-  margin-top: 10px;
+  margin-top: 2px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -181,6 +181,11 @@
   justify-content: flex-start;
   align-self: center;
   align-content: center;
+  font-family: 'Roboto';
+  font-weight: 500;
+  span {
+    color: #41a181;
+  }
 }
 .text p {
   font-size: 1.5rem;
@@ -195,7 +200,7 @@
   width: 100%;
   min-height: 950px;
   background-color: #000;
-  margin-top: 10px;
+  margin-top: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -262,7 +267,7 @@
   align-items: center;
   justify-content: center;
   text-align: left;
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
 .box1 {
@@ -296,7 +301,7 @@
   width: 100%;
   min-height: 375px;
   background-color: black;
-  margin-top: 10px;
+  margin-top: 2px;
   flex-wrap: wrap;
   align-items:center;
   justify-content:space-around;

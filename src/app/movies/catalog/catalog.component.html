@@ -1,31 +1,159 @@
 
-<figure class="snip1171">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample71.jpg" alt="sample71"/>
-    <div class="price">$19.00</div>
-    <figcaption>
-      <h3>Wool Hat</h3>
-      <p>
-        Sometimes I think the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.
-      </p><a href="#">Add to Cart</a>
-    </figcaption>
-  </figure>
-  <figure class="snip1171 blue hover">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample47.jpg" alt="sample47"/>
-    <div class="price">$19.00</div>
-    <figcaption>
-      <h3>Denim Shirt </h3>
-      <p>
-        I don't need to compromise on my principles, because they don't have the slightest bearing on what happens to me anyway.
-      </p><a href="#">Add to Cart</a>
-    </figcaption>
-  </figure>
-  <figure class="snip1171 orange">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample52.jpg" alt="sample52"/>
-    <div class="price">$19.00</div>
-    <figcaption>
-      <h3>Wax Jacket</h3>
-      <p>
-        You know that is the real problem with nature, something's always stinging you or oozing mucous all over you. Let's go and watch TV.
-      </p><a href="#">Add to Cart</a>
-    </figcaption>
-  </figure>
+    <div id="centeredContent" class ="centeredContent">
+        <div #hero class="hero">
+            <div class="hero-content">
+            <h2 class="hero-subtitle" [class.active]="filterBy=='all'" (click)="filterBy='all'">All</h2>
+            <h2 class="hero-subtitle" [class.active]="filterBy=='services'" (click)="filterBy='services'">Services</h2>
+            <h2 class="hero-subtitle" [class.active]="filterBy=='productions'" (click)="filterBy='productions'">Productions</h2>
+          
+        <div class="flex-container">
+            <ul class="thumbnailsList">
+                <li *ngFor="let image of (visibleImages | filter:filterBy!); let i = index;" (mouseover)="isHovered[i] = true"  (mouseout)="isHovered[i] = false" width="100%" height="auto" class="item">
+              
+                       <!--  <img [src]="checkHover(image, isHovered[i])" class="image" width="560" height="314" (click)="openModal(image)">-->
+                        <img #changeImg [src]="!isHovered[i] ? image.url : image.gif" class="image" width="280" height="157" (click)="openModal(image)">
+                 
+                </li>
+    
+            </ul>
+    
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="hero">
+            <div class="hero-content">
+        
+        <!-- The Modal -->
+        <div #myModal id="myModal" (click)="closeModal()" class="modal">
+         
+          <!-- Modal content -->
+          <div class="modal-content">
+          <span #close (click)="closeModal()" class="close">&times;</span> 
+        
+            <div class="iframeContainer">
+    
+                 <!-- <input *ngFor="let input of sliderItems.slice(id) let i = index" type="radio" name="slides" [id]="(slides+(id+i))"/>  -->
+                 <ng-container *ngIf="!currentImage?.link">
+                    <div class="loader" ><img src="../../assets/gif/streamingloader.gif"></div> 
+                    </ng-container>
+                    <ng-container *ngIf="currentImage?.link">
+                   <div class="iframeloader"> 
+                       <iframe #modalWindow class="modalwindow" width="100%" height="400px" [src]="(currentImage?.link | safe)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen allowscriptaccess="always"></iframe>
+                    </div>
+                    </ng-container>
+                  
+            </div>
+            <div (click)="$event.stopPropagation()" class="hero-content-white">
+            
+                    <h2 class="hero-subtitle-white" >{{currentImage?.title}}</h2>
+                    <h3 class="hero-subtitle-white" >{{currentImage?.author}}</h3>
+                    <h3 class="hero-subtitle-white" >{{currentImage?.subauthor}}</h3>
+                    <ng-container *ngIf="currentImage?.subauthor">
+                        <h3 class="hero-subtitle-white" >{{currentImage?.subauthor}}</h3>
+                    </ng-container>
+                    <div class="showMoreButton">
+                  <!--   <p (click)="expandDescription();$event.stopPropagation()" #showMore class="hero-subtitle-white showMore" >show more</p> -->
+                    </div>
+
+                    <div class="movie-icons">
+                        
+                 <fa-icon [icon]="icons.faHeart"></fa-icon> 
+                 <fa-icon [icon]="icons.faUser"></fa-icon> 
+                  <!--  <i class="fa fa-heart"></i>  -->
+                        </div>
+
+                        <div class="socialIcons">
+                            <!-- PUT SOCIAL ICONS AND ADD TO FAVORITIES HERE -->
+                            </div>
+                        
+                    <p class="hero-subtitle-white">...</p> 
+    
+        <ng-container *ngIf="currentImage">
+            
+                    <div #description class="description">
+    
+                        <ng-container *ngIf="currentImage.production">
+                            <ng-container *ngIf="currentImage.production.length <= 12">
+                        <h3 class="hero-subtitle-white" >Production Company:</h3>
+                        </ng-container>
+                        <ng-container *ngIf="currentImage.production.length > 12">
+                            <h3 class="hero-subtitle-white" >Production Companies:</h3>
+                            </ng-container>
+                        <p class="hero-subtitle-white-text">{{currentImage.production}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.executiveProducer">
+                            <h3 class="hero-subtitle-white" >Executive Producer:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.executiveProducer}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.service">
+                            <ng-container *ngIf="currentImage.production.length <= 12"> 
+                                <h3 class="hero-subtitle-white" >Service Company:</h3>
+                            </ng-container>
+                            
+                            <ng-container *ngIf="currentImage.production.length > 12">
+                                <h3 class="hero-subtitle-white" >Production Companies:</h3>
+                                </ng-container>
+                            <p class="hero-subtitle-white-text">{{currentImage.service}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.executiveProducerTwo">
+                            <h3 class="hero-subtitle-white" >Executive Producer:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.executiveProducerTwo}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.label">
+                            <h3 class="hero-subtitle-white" >Label:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.label}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.coproduction">
+                            <h3 class="hero-subtitle-white" >Co-production Companies:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.coproduction}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.producer">
+                            <h3 class="hero-subtitle-white" >Producer:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.producer}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.associatedProducer">
+                            <h3 class="hero-subtitle-white" >Associated Production Companies:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.associatedProducer}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.creative">
+                            <h3 class="hero-subtitle-white" >Creative:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.creative}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.choreography">
+                            <h3 class="hero-subtitle-white" >Choreography:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.choreography}}</p>
+                        </ng-container>
+    
+                        <ng-container *ngIf="currentImage.director">
+                            <h3 class="hero-subtitle-white" >Director:</h3>
+                            <p class="hero-subtitle-white-text">{{currentImage.director}}</p>
+                        </ng-container>
+        
+                        <p class="hero-subtitle-white">...</p> 
+                        <p (click)="expandDescription();$event.stopPropagation()" class="hero-subtitle-white showMore">show less</p>
+        
+                    </div>
+    
+                    </ng-container>
+            </div>
+          </div> <!-- MODAL CONTENT -->
+        </div>
+        </div>
+    
+        </div>
+    
+        <ng-container *ngIf="bottom">
+            <div class="hero-subtitle-top" (click)="goToTop('centeredContent')"><i class="fa fa-arrow-up"></i></div>
+        </ng-container> 

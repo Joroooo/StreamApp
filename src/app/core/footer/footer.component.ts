@@ -12,6 +12,8 @@ export class FooterComponent implements OnInit {
   location =  window.location.href;
   home = this.location.substring(this.location.lastIndexOf('/') + 1, this.location.length) || location;
   authPage?: boolean = false;
+  mainLogo: string = '../../../assets/images/logo3.png';
+  noFooter?: boolean = false;
 
   constructor(
     private renderer:Renderer2, 
@@ -21,7 +23,7 @@ export class FooterComponent implements OnInit {
       if(event instanceof NavigationEnd) {
         this.location = window.location.href;
         this.home = this.location.substring(this.location.lastIndexOf('/')+1, this.location.length) || location;
-        if(this.home == 'login' || this.home == 'register') {
+        if(this.noFooter) {
           this.authPage = true;
           this.removeFooter(this.authPage);
         } else {
